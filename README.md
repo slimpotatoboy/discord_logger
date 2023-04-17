@@ -78,6 +78,7 @@ final discord = DiscordLogger.instance;
 discord.sendMessage("This is a error log to my channel");
 
 ...
+```
 
 
 ## 🚀 Contributors
