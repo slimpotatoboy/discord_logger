@@ -1,6 +1,6 @@
 name: discord_logger
 description: A simple flutter package to send message to discord channel via discord bot
-version: 0.0.1
+version: 1.0.0
 homepage: https://github.com/slimpotatoboy/discord_logger
 
 environment:
