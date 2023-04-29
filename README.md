@@ -80,6 +80,40 @@ discord.sendMessage("This is a error log to my channel");
 ...
 ```
 
+#### Get All Messages:
+
+```dart
+...
+
+List messages = [];
+var response = await discord.getChannelMessages();
+setState((){
+  messages = response;
+});
+
+...
+```
+
+#### Edit a single message:
+
+```dart
+...
+
+discord.updateChannelMessage(messageId: "123", message: "This is an updated message");
+
+...
+```
+
+#### Delete a single message:
+
+```dart
+...
+
+discord.deleteChannelMessage(messageId: "123");
+
+...
+```
+
 
 ## 🚀 Contributors
 
