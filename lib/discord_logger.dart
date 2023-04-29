@@ -2,7 +2,7 @@ library discord_logger;
 
 import 'dart:convert';
 import 'package:discord_logger/exception.dart';
-import 'package:discord_logger/utils/request_url.dart';
+import 'package:discord_logger/utils/utils.dart';
 
 class DiscordLogger {
   static DiscordLogger? _instance;
@@ -35,6 +35,43 @@ class DiscordLogger {
         "content": message,
       });
       requestUrl(postBody);
+    } catch (e) {
+      throw DiscordLoggerException(e.toString());
+    }
+  }
+
+  /// get [messages] of specific [channels]
+  Future getChannelMessages() async {
+    _assertInstance();
+    try {
+      var getResponse = await requestChannelMessages();
+      return getResponse;
+    } catch (e) {
+      throw DiscordLoggerException(e.toString());
+    }
+  }
+
+  /// update [message] of specific [channel]
+  Future updateChannelMessage(
+      {required String messageId, required String message}) async {
+    _assertInstance();
+    try {
+      var postBody = jsonEncode({
+        "content": message,
+      });
+      var getResponse = await updateChannelMessages(messageId, postBody);
+      return getResponse;
+    } catch (e) {
+      throw DiscordLoggerException(e.toString());
+    }
+  }
+
+  /// delete a [message] of specific [channel]
+  Future deleteChannelMessage({required String messageId}) async {
+    _assertInstance();
+    try {
+      var getResponse = await deleteChannelMessages(messageId);
+      return getResponse;
     } catch (e) {
       throw DiscordLoggerException(e.toString());
     }
