@@ -9,3 +9,6 @@
 - Get All Messages
 - Edit Message
 - Delete Message from channel
+
+## 1.0.1
+- Package Updated
